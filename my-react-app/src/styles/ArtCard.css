@@ -1,0 +1,48 @@
+img {
+  height: 130px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.art-card {
+  background-color: #f1efef;
+  border-radius: 10px;
+  padding: 10px;
+  width: 210px;
+  height: auto;
+}
+
+.card-img {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.card-title {
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+.card-text {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 2px;
+}
+.card-button {
+  border: none;
+}
+
+.fa-heart {
+  color: #e66767;
+}
+.card-button .fa-heart:hover {
+  color: #b43f3f;
+}
