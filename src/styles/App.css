@@ -29,6 +29,15 @@
   margin-bottom: 1rem;
 }
 
+.btn {
+  font-family: "Inter", sans-serif;
+}
+
+.dropdown-toggle,
+.dropdown-menu .dropdown-item {
+  font-family: "Inter", sans-serif;
+}
+
 .filter-dropdown-1 {
   margin-right: 0.5rem;
   margin-left: 0.5rem;

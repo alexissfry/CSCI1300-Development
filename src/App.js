@@ -104,7 +104,7 @@ function App() {
         <h1>Alexis' Origami Gallery</h1>
         <div className="filer-sort-buttons">
           <div>
-            <Button variant="outline-dark" onClick={handleSortChange}>
+            <Button variant="outline-dark" onClick={handleSortChange} className="custom-button">
               Sort A-Z
             </Button>
           </div>
