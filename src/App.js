@@ -8,7 +8,7 @@ const ArtGallery = ({ artData, handleCardLike }) => {
   return (
     <div className="art-gallery">
       {artData.map((item, index) => (
-        <div key={index}>
+        <div className="art-gallery-row" key={index}>
           <ArtCard item={item} handleCardLike={handleCardLike} />
         </div>
       ))}
@@ -190,8 +190,8 @@ function App() {
         </div>
         <div className="favorites-aggregate">
           {favorites.map((item, index) => (
-            <div key={index}>
-              <img className="favorite" src={item.image} alt={item.title} />
+            <div className="favorite" key={index}>
+              <img src={item.image} alt={item.title} />
             </div>
           ))}
         </div>
