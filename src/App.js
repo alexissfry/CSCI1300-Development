@@ -5,6 +5,17 @@ import { useState } from "react";
 import { Button, Dropdown } from "react-bootstrap";
 
 const ArtGallery = ({ artData, handleCardLike }) => {
+  if (artData.length === 0) {
+    return (
+      <div className="no-gallery">
+        <p>
+          There is no artwork to display with the currently selected
+          filters/sorts! ❤️‍🩹
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="art-gallery">
       {artData.map((item, index) => (

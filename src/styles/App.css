@@ -11,6 +11,12 @@
   gap: 1rem;
 }
 
+.no-gallery {
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+}
+
 .gallery-container {
   padding: 2rem 2rem 2rem 2rem;
   flex: 1;
