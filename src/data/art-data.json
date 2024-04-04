@@ -71,37 +71,37 @@
   },
   {
     "id": "11",
-    "image": "images/paraboloid.png",
-    "title": "Warp",
-    "type": "Paraboloid",
-    "color": ["White"]
-  },
-  {
-    "id": "12",
     "image": "images/camo.jpeg",
     "title": "Camo",
     "type": "Crane",
     "color": ["Blue", "Green"]
   },
   {
-    "id": "13",
+    "id": "12",
     "image": "images/leafy.jpeg",
     "title": "Leafy",
     "type": "Crane",
     "color": ["White", "Green"]
   },
   {
-    "id": "14",
+    "id": "13",
     "image": "images/budding.jpeg",
     "title": "Bud",
     "type": "Crane",
     "color": ["White", "Red"]
   },
   {
-    "id": "15",
+    "id": "14",
     "image": "images/hiding.jpeg",
     "title": "Hidden",
     "type": "Crane",
     "color": ["White", "Brown"]
+  },
+  {
+    "id": "15",
+    "image": "images/paraboloid.png",
+    "title": "Warp",
+    "type": "Paraboloid",
+    "color": ["White"]
   }
 ]

@@ -1,19 +1,17 @@
 .App {
   display: flex;
   justify-content: space-between;
-  padding-left: 2rem;
 }
 
 .art-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
   gap: 1rem;
 }
 
 .gallery-container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   flex: 1;
   margin-right: 2rem;
 }
@@ -23,10 +21,6 @@
   justify-content: end;
   margin-bottom: 1rem;
 }
-
-/* .bs-dropdown-link-active-bg {
-  background-color: none !important;
-} */
 
 .filter-dropdown-1 {
   margin-right: 0.5rem;
@@ -72,19 +66,20 @@
 .favorites-container {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  width: 200px;
+  width: 300px;
   border-style: none none none solid;
   border-color: #b6b0b0;
 }
 
 .favorites-container h1 {
-  font-size: 28px;
+  font-size: 32px;
   padding-left: 4px;
+  margin-bottom: 0;
 }
 
 .favorites-container img {
-  height: 100px;
-  width: auto;
+  width: 220px;
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -92,6 +87,7 @@
 .favorites-title {
   display: flex;
   align-items: center;
+  justify-content: start;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   padding-left: 1rem;
@@ -105,14 +101,16 @@
 }
 
 .favorite {
-  padding-top: 2px;
-  padding-bottom: 2px;
+  display: flex;
+  justify-content: start;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 h1 {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 42px;
 }
 
 @media (max-width: 768px) {

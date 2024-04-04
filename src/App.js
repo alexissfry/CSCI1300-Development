@@ -93,7 +93,7 @@ function App() {
         <h1>Alexis' Origami Gallery</h1>
         <div className="filer-sort-buttons">
           <div>
-            <Button variant="outline-dark" size="sm" onClick={handleSortChange}>
+            <Button variant="outline-dark" onClick={handleSortChange}>
               Sort A-Z
             </Button>
           </div>
@@ -102,7 +102,6 @@ function App() {
             <Dropdown.Toggle
               variant="secondary"
               id="dropdown-secondary"
-              size="sm"
               className="filter-dropdown-1"
             >
               Fold Type
@@ -133,7 +132,6 @@ function App() {
             <Dropdown.Toggle
               variant="secondary"
               id="dropdown-basic"
-              size="sm"
               className="filter-dropdown-2"
             >
               Color
@@ -178,7 +176,7 @@ function App() {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Button variant="outline-dark" size="sm" onClick={handleReset}>
+          <Button variant="outline-dark" onClick={handleReset}>
             Reset
           </Button>
         </div>
@@ -187,7 +185,7 @@ function App() {
       </div>
       <div className="favorites-container">
         <div className="favorites-title">
-          <i className="fa-solid fa-heart"></i>
+          <i className="fa-solid fa-heart fa-xl"></i>
           <h1>{favorites.length}</h1>
         </div>
         <div className="favorites-aggregate">
