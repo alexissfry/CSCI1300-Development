@@ -65,12 +65,21 @@
   color: white;
 }
 
+.dropdown-item.active {
+  background-color: #e56667;
+}
+
 .favorites-container {
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 200px;
   border-style: none none none solid;
   border-color: #b6b0b0;
+}
+
+.favorites-container h1 {
+  font-size: 28px;
+  padding-left: 4px;
 }
 
 .favorites-container img {
@@ -103,4 +112,33 @@
 h1 {
   font-family: "Inter", sans-serif;
   font-weight: 500;
+  font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+
+  .gallery-container {
+    margin-right: 0;
+  }
+
+  .favorites-container {
+    width: 100%;
+    border-style: none;
+    border-top: solid 1px #b6b0b0;
+  }
+  .art-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .filer-sort-buttons {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 1rem;
+  }
 }

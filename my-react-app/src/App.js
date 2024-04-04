@@ -1,7 +1,7 @@
 import "./styles/App.css";
 import ArtCard from "./components/ArtCard";
 import artData from "./data/art-data.json";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button, Dropdown } from "react-bootstrap";
 
 const ArtGallery = ({ artData, handleCardLike }) => {
@@ -18,26 +18,82 @@ const ArtGallery = ({ artData, handleCardLike }) => {
 
 function App() {
   const [favorites, setFavorites] = useState([]);
+  const [sortAscending, setSortAscending] = useState(false);
+  const [selectedTypes, setSelectedTypes] = useState([]);
+  const [selectedColors, setSelectedColors] = useState([]);
 
   const handleCardLike = (item, isLiked) => {
     if (isLiked) {
-      // add the item to favorites
       setFavorites((prevFavorites) => [...prevFavorites, item]);
     } else {
-      // remove the specific item from favorites when it is unliked
       setFavorites((prevFavorites) =>
         prevFavorites.filter((favorite) => favorite.id !== item.id)
       );
     }
   };
 
+  const sortData = (data) => {
+    if (sortAscending) {
+      return [...data].sort((a, b) => a.title.localeCompare(b.title));
+    }
+    return data;
+  };
+
+  const filterTypeData = (data) => {
+    if (selectedTypes.length === 0) {
+      return data;
+    }
+
+    return data.filter((item) => selectedTypes.includes(item.type));
+  };
+
+  const filterColorData = (data) => {
+    if (selectedColors.length === 0) {
+      return data;
+    }
+
+    return data.filter((item) => {
+      return selectedColors.some((color) => item.color.includes(color));
+    });
+  };
+
+  const handleSortChange = () => {
+    setSortAscending(!sortAscending);
+  };
+
+  const handleFilterTypeChange = (type) => {
+    if (selectedTypes.includes(type)) {
+      setSelectedTypes(selectedTypes.filter((t) => t !== type));
+    } else {
+      setSelectedTypes([...selectedTypes, type]);
+    }
+  };
+
+  const handleFilterColorChange = (color) => {
+    if (selectedColors.includes(color)) {
+      setSelectedColors(selectedColors.filter((c) => c !== color));
+    } else {
+      setSelectedColors([...selectedColors, color]);
+    }
+  };
+
+  const handleReset = () => {
+    setSortAscending(false);
+    setSelectedTypes([]);
+    setSelectedColors([]);
+  };
+
+  const filteredTypeData = filterTypeData(artData);
+  const filteredColorData = filterColorData(filteredTypeData);
+  const sortedData = sortData(filteredColorData);
+
   return (
     <div className="App">
       <div className="gallery-container">
         <h1>Alexis' Origami Gallery</h1>
         <div className="filer-sort-buttons">
-          <div className="mr-2">
-            <Button variant="outline-dark" size="sm">
+          <div>
+            <Button variant="outline-dark" size="sm" onClick={handleSortChange}>
               Sort A-Z
             </Button>
           </div>
@@ -53,9 +109,24 @@ function App() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Crane</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Swan</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Paraboloid</Dropdown.Item>
+              <Dropdown.Item
+                active={selectedTypes.includes("Crane")}
+                onClick={() => handleFilterTypeChange("Crane")}
+              >
+                Crane
+              </Dropdown.Item>
+              <Dropdown.Item
+                active={selectedTypes.includes("Swan")}
+                onClick={() => handleFilterTypeChange("Swan")}
+              >
+                Swan
+              </Dropdown.Item>
+              <Dropdown.Item
+                active={selectedTypes.includes("Paraboloid")}
+                onClick={() => handleFilterTypeChange("Paraboloid")}
+              >
+                Paraboloid
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
@@ -69,20 +140,50 @@ function App() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">White</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Red</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Black</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Blue</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Green</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Brown</Dropdown.Item>
+              <Dropdown.Item
+                active={selectedColors.includes("White")}
+                onClick={() => handleFilterColorChange("White")}
+              >
+                White
+              </Dropdown.Item>
+              <Dropdown.Item
+                active={selectedColors.includes("Red")}
+                onClick={() => handleFilterColorChange("Red")}
+              >
+                Red
+              </Dropdown.Item>
+              <Dropdown.Item
+                active={selectedColors.includes("Black")}
+                onClick={() => handleFilterColorChange("Black")}
+              >
+                Black
+              </Dropdown.Item>
+              <Dropdown.Item
+                active={selectedColors.includes("Blue")}
+                onClick={() => handleFilterColorChange("Blue")}
+              >
+                Blue
+              </Dropdown.Item>
+              <Dropdown.Item
+                active={selectedColors.includes("Green")}
+                onClick={() => handleFilterColorChange("Green")}
+              >
+                Green
+              </Dropdown.Item>
+              <Dropdown.Item
+                active={selectedColors.includes("Brown")}
+                onClick={() => handleFilterColorChange("Brown")}
+              >
+                Brown
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Button variant="outline-dark" size="sm">
+          <Button variant="outline-dark" size="sm" onClick={handleReset}>
             Reset
           </Button>
         </div>
         <div className="gallery-controls"></div>
-        <ArtGallery artData={artData} handleCardLike={handleCardLike} />
+        <ArtGallery artData={sortedData} handleCardLike={handleCardLike} />
       </div>
       <div className="favorites-container">
         <div className="favorites-title">
