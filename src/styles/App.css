@@ -75,8 +75,10 @@
   color: white;
 }
 
-.dropdown-item.active {
-  background-color: #e56667;
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item.active {
+  background-color: #e66767;
+  color: white;
 }
 
 .favorites-container {
